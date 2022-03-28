@@ -35,6 +35,8 @@ while loop:
                     output = output + attempt[i] + Back.RESET
                     counter-=1
             print(output)
-            if word == attempt:
+            if counter == 0:
+                print("Uneli ste pogresnu rec")
+            elif word == attempt:
                 print("Cestitamo domacine, vidim gleda se slagalica")
-                quit()
+        print("Izgubio si tacna rec je bila:", word)
