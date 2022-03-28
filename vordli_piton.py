@@ -1,5 +1,10 @@
 from colorama import init, Fore, Back, Style
 import random
+
+
+def obrada_greske(poruka):
+    return "Pogresan unos:" + poruka
+
 init()
 loop = True
 word_list = ["strah", "volan", "trava", "lampa", "tepih", "hrast", "tigar", "papir", "covek", "moron", "petak", "metak"]
@@ -17,9 +22,9 @@ while loop:
 
         while inner_loop < counter:
 
-            attempt = input().lower()
+            attempt = input("Unesi rec:").lower()
             if len(attempt) != 5:
-                print("Rec nije validna")
+                print(obrada_greske("invalid length"))
                 continue
 
             # Logika igre
@@ -35,8 +40,9 @@ while loop:
                     output = output + attempt[i] + Back.RESET
                     counter-=1
             print(output)
-            if counter == 0:
-                print("Uneli ste pogresnu rec")
-            elif word == attempt:
+            
+            if word == attempt:
                 print("Cestitamo domacine, vidim gleda se slagalica")
+                quit()
+
         print("Izgubio si tacna rec je bila:", word)
